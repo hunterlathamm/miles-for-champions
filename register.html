@@ -154,15 +154,10 @@
           </div>
 
           <div data-when="challenge=loops">
-            <fieldset class="group"><legend>Estimated number of loops <i>*</i></legend>
-              <div class="opts">
-                <label class="opt"><input type="radio" name="estLoops" value="1 loop" required><span>1 loop: 4.167 miles</span></label>
-                <label class="opt"><input type="radio" name="estLoops" value="2 loops"><span>2 loops: 8.334 miles</span></label>
-                <label class="opt"><input type="radio" name="estLoops" value="3 loops"><span>3 loops: 12.501 miles</span></label>
-                <label class="opt"><input type="radio" name="estLoops" value="4 or more loops"><span>4 or more loops</span></label>
-                <label class="opt"><input type="radio" name="estLoops" value="Not sure yet"><span>I'm not sure yet, I'll see how I feel!</span></label>
-              </div>
-            </fieldset>
+            <div class="grid">
+              <div class="field full"><label for="estLoops">Estimated number of loops <i>*</i></label>
+                <select id="estLoops" name="estLoops" required><option value="">Select loops</option><option value="1 loop">1 loop: 4.167 miles</option><option value="2 loops">2 loops: 8.334 miles</option><option value="3 loops">3 loops: 12.501 miles</option><option value="4 loops">4 loops: 16.668 miles</option><option value="5 loops">5 loops: 20.835 miles</option><option value="6 loops">6 loops: 25.002 miles</option><option value="7 loops">7 loops: 29.169 miles</option><option value="8 loops">8 loops: 33.336 miles</option><option value="9 loops">9 loops: 37.503 miles</option><option value="10 loops">10 loops: 41.67 miles</option><option value="11 loops">11 loops: 45.837 miles</option><option value="12 loops">12 loops: 50.004 miles</option><option value="13 loops">13 loops: 54.171 miles</option><option value="14 loops">14 loops: 58.338 miles</option><option value="15 loops">15 loops: 62.505 miles</option><option value="Not sure yet">I'm not sure yet, I'll see how I feel!</option></select></div>
+            </div>
             <div class="grid">
               <div class="field"><label for="startDay">Estimated day of your first loop <i>*</i></label>
                 <select id="startDay" name="startDay" required><option value="">Select a day</option><option>Sat., Feb. 27</option><option>Sun., Feb. 28</option></select></div>

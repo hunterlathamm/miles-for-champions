@@ -34,6 +34,7 @@
 .link { background: none; border: 0; color: var(--white); text-decoration: underline; font: inherit; cursor: pointer; }
 .note { color: var(--muted); font-size: .92rem; margin-top: 8px; }
 .full { grid-column: 1 / -1; }
+.grid + .grid { margin-top: 20px; }
 
 /* Challenge cards */
 .choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }

@@ -120,11 +120,10 @@ function buildSummary_(ss) {
     ['Minors (need guardian consent)', `=COUNTIF(${minor},"Yes")`],
     ['', ''],
     ['Estimated loops (few-loop runners)', ''],
-    ['1 loop', `=COUNTIF(${loops},"1 loop")`],
-    ['2 loops', `=COUNTIF(${loops},"2 loops")`],
-    ['3 loops', `=COUNTIF(${loops},"3 loops")`],
-    ['4 or more loops', `=COUNTIF(${loops},"4 or more loops")`],
-    ['Not sure yet', `=COUNTIF(${loops},"Not sure yet")`],
+  ].concat(
+    Array.from({ length: 15 }, (_, i) => { const l = `${i + 1} loop${i ? 's' : ''}`; return [l, `=COUNTIF(${loops},"${l}")`]; }),
+    [['Not sure yet', `=COUNTIF(${loops},"Not sure yet")`],
+    ['Total estimated loops', `=SUMPRODUCT(IFERROR(VALUE(REGEXEXTRACT(${loops},"^\\d+")),0))`],
     ['', ''],
     ['Fundraising interest', ''],
     ["Yes, I'd love to help fundraise!", `=COUNTIF(${fund},"Yes, I'd love to help fundraise!")`],
@@ -132,10 +131,10 @@ function buildSummary_(ss) {
     ["I'm here to run and support the mission!", `=COUNTIF(${fund},"I'm here to run and support the mission!")`],
     ['', ''],
     ['T-shirt sizes', ''],
-  ].concat(['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'].map((s) => [s, `=COUNTIF(${shirt},"${s}")`]));
+  ]).concat(['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'].map((s) => [s, `=COUNTIF(${shirt},"${s}")`]));
   sum.getRange(1, 1, rows.length, 2).setValues(rows);
   sum.getRange('A1').setFontSize(16).setFontWeight('bold');
-  [3, 11, 18, 23].forEach((r) => sum.getRange(r, 1).setFontWeight('bold').setFontColor('#e3121b'));
+  [3, 11, 30, 35].forEach((r) => sum.getRange(r, 1).setFontWeight('bold').setFontColor('#e3121b'));
   sum.setColumnWidth(1, 320);
 }
 
