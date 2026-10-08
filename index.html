@@ -90,9 +90,8 @@
     .stat span { display: block; margin-top: 8px; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 
     /* Event */
-    .event-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
+    .event-grid { max-width: 760px; }
     .event-grid p + p { margin-top: 16px; }
-    .event-grid .flyer { border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(0,0,0,.6); }
     .callout { margin-top: 28px; padding: 22px 24px; border-left: 4px solid var(--red); background: var(--bg-2); }
     .callout strong { font: italic 800 1.4rem/1.2 var(--display); text-transform: uppercase; display: block; margin-bottom: 4px; }
     .details { list-style: none; margin-top: 24px; display: grid; gap: 8px; }
@@ -147,7 +146,6 @@
       .stats .wrap { grid-template-columns: repeat(2, 1fr); }
       .stat:nth-child(3) { border-left: 0; }
       .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-      .event-grid { grid-template-columns: 1fr; gap: 40px; }
       .cards { grid-template-columns: 1fr; }
       .timeline { grid-template-columns: 1fr; gap: 34px; }
       .timeline::before { top: 12px; bottom: 12px; left: 11px; right: auto; width: 3px; height: auto; }
@@ -197,45 +195,44 @@
         <p>A backyard ultra is simple: run a <strong>4.167-mile loop</strong> every hour, on the hour. Do that for <strong>24 hours</strong> and you’ve covered <strong>100 miles</strong>.</p>
         <div class="callout">
           <strong>Anyone can join!</strong>
-          You don’t have to be an ultrarunner. Pick your challenge: run 100 miles solo, build a relay team, or run a few loops. Run, walk, cheer, or just come hang out and be part of it.
+          You don’t have to be an ultrarunner. Pick your challenge: run 100 miles solo, build a relay team, or run a few loops.
         </div>
                 <ul class="details">
-          <li><b>When:</b> Starts Saturday, February 27, 2027 at 1:00 PM · Ends Sunday, February 28 at 1:00 PM</li>
+          <li><b>When:</b> Feb. 27 @ 1 - Feb. 28 @ 1</li>
           <li><b>Where:</b> Private property about 3 miles east of Lake Arcadia, Oklahoma City</li>
           <li><b>Loop:</b> 4.167 miles, starting every hour</li>
         </ul>
         <div class="btns">
           <!-- TODO: replace # with the runner sign-up form URL (search for SIGNUP_URL) -->
-          <a class="btn" href="#" data-link="SIGNUP_URL">Sign up to run a loop</a>
+          <a class="btn" href="#" data-link="SIGNUP_URL">Join the Run</a>
         </div>
       </div>
-      <img class="flyer" src="assets/flyer.jpg" alt="Miles For Champions Backyard Ultra flyer: 4.167 miles per loop, 24 hours, pick 1, 2, 5 or 10+ loops, 100 miles with a mission. Goal $24,000 to help give 200 Special Olympics Champions a season of sports." width="1254" height="1254" loading="lazy">
     </div>
   </section>
 
   <section class="join" id="join">
     <div class="wrap">
       <p class="eyebrow">Get involved</p>
-      <h2 class="display">Join Miles <span class="red">For</span> Champions</h2>
+      <h2 class="display">Join The <span class="red">Backyard Ultra</span></h2>
       <p class="lead">There are three ways to be part of it. Every one of them matters.</p>
       <div class="cards">
         <div class="card">
           <div class="num">01</div>
-          <h3>Run</h3>
-          <p>Join Ryan for a loop (or ten) at the Backyard Ultra. Run it, walk it — every mile you put in is a mile for the Champions.</p>
-          <a class="btn" href="#" data-link="SIGNUP_URL">Sign up to run</a>
+          <h3>100 Miles Solo</h3>
+          <p>Go the full distance. One 4.167-mile loop every hour, on the hour, for 24 hours.</p>
+          <a class="btn" href="#" data-link="SIGNUP_URL">Join the Run</a>
         </div>
         <div class="card">
           <div class="num">02</div>
-          <h3>Give</h3>
-          <p>$120 gives one Special Olympics athlete a full season of sports. Any amount helps us reach 200 Champions.</p>
-          <a class="btn" href="#" data-link="DONATE_URL">Donate now</a>
+          <h3>Relay Team</h3>
+          <p>Build a team and split the loops. Together, your team covers all 100 miles.</p>
+          <a class="btn" href="#" data-link="SIGNUP_URL">Join the Run</a>
         </div>
         <div class="card">
           <div class="num">03</div>
-          <h3>Share</h3>
-          <p>Send this page to a friend, post the flyer, tag your running crew. The more people who know, the more Champions we reach.</p>
-          <a class="btn ghost" href="#" id="share">Share this page</a>
+          <h3>Solo Loops</h3>
+          <p>Run one loop, five loops, or as many as you want. Every mile is a mile for the Champions.</p>
+          <a class="btn" href="#" data-link="SIGNUP_URL">Join the Run</a>
         </div>
       </div>
     </div>
@@ -313,17 +310,5 @@
     </div>
   </footer>
 
-  <script>
-    // Share button: native share sheet on phones, copy link elsewhere.
-    document.getElementById("share").addEventListener("click", async (e) => {
-      e.preventDefault();
-      const data = { title: "Miles For Champions", text: "Help give 200 Special Olympics Champions a season of sports.", url: location.href };
-      try {
-        if (navigator.share) return await navigator.share(data);
-        await navigator.clipboard.writeText(location.href);
-        e.target.textContent = "Link copied!";
-      } catch (_) {}
-    });
-  </script>
 </body>
 </html>
