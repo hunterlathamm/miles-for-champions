@@ -48,6 +48,18 @@
   document.getElementById("sigDateShown").value = today.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
   form.elements.dob.max = todayISO;
 
+  // Loops start on the hour from 1 PM Feb. 27; the last one starts at noon Feb. 28.
+  const LOOP_TIMES = {
+    "Sat., Feb. 27": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "Sun., Feb. 28": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  };
+  const hourLabel = (h) => `${h % 12 || 12}:00 ${h < 12 ? "AM" : "PM"}`;
+  form.elements.startDay.addEventListener("change", (e) => {
+    const sel = form.elements.startTime;
+    const hours = LOOP_TIMES[e.target.value];
+    sel.replaceChildren(new Option(hours ? "Select a time" : "Pick a day first", ""), ...(hours || []).map((h) => new Option(`${hourLabel(h)} loop`, hourLabel(h))));
+  });
+
   // ---- Values & conditions ----
   function val(name) {
     const f = form.elements[name];
@@ -221,7 +233,10 @@
       ["Phone", val("phone"), 1],
     ];
     if (val("challenge") === "relay") rows.push(["Team", teamLabel(), 2]);
-    if (val("challenge") === "loops") rows.push(["Estimated loops", val("estLoops"), 2]);
+    if (val("challenge") === "loops") {
+      rows.push(["Estimated loops", val("estLoops"), 2]);
+      rows.push(["First loop", `${val("startDay")} · ${val("startTime")}`, 2]);
+    }
     rows.push(["Emergency contact", `${val("ecName")} (${val("ecRelation")}) · ${val("ecPhone")}`, 3]);
     if (isMinor()) rows.push(["Parent/guardian", `${val("guardianName")} · ${val("guardianPhone")}`, 3]);
     rows.push(["Fundraising", val("fundraising"), 4]);

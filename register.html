@@ -154,7 +154,7 @@
           </div>
 
           <div data-when="challenge=loops">
-            <fieldset class="group"><legend>How many loops are you hoping to complete? <i>*</i></legend>
+            <fieldset class="group"><legend>Estimated number of loops <i>*</i></legend>
               <div class="opts">
                 <label class="opt"><input type="radio" name="estLoops" value="1 loop" required><span>1 loop: 4.167 miles</span></label>
                 <label class="opt"><input type="radio" name="estLoops" value="2 loops"><span>2 loops: 8.334 miles</span></label>
@@ -162,8 +162,14 @@
                 <label class="opt"><input type="radio" name="estLoops" value="4 or more loops"><span>4 or more loops</span></label>
                 <label class="opt"><input type="radio" name="estLoops" value="Not sure yet"><span>I'm not sure yet, I'll see how I feel!</span></label>
               </div>
-              <p class="note">This just helps us plan. You're not locked into a distance.</p>
             </fieldset>
+            <div class="grid">
+              <div class="field"><label for="startDay">Estimated day of your first loop <i>*</i></label>
+                <select id="startDay" name="startDay" required><option value="">Select a day</option><option>Sat., Feb. 27</option><option>Sun., Feb. 28</option></select></div>
+              <div class="field"><label for="startTime">Estimated start time of your first loop <i>*</i></label>
+                <select id="startTime" name="startTime" required><option value="">Pick a day first</option></select></div>
+            </div>
+            <p class="note">These answers just help us plan. You're not locked into a distance or start time.</p>
           </div>
           <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
         </div>

@@ -42,6 +42,8 @@ const REG_COLUMNS = [
   ['Team Name', 'teamName'],
   ['Est. Team Size', 'teamSize'],
   ['Estimated Loops', 'estLoops'],
+  ['First Loop Day', 'startDay'],
+  ['First Loop Time', 'startTime'],
   ['Emergency Contact', 'ecName'],
   ['Emergency Phone', 'ecPhone'],
   ['Emergency Relationship', 'ecRelation'],
@@ -240,7 +242,7 @@ function validate_(d, minor) {
   else required.push('crew');
   if (d.challenge === 'relay') required.push('teamMode', d.teamMode === 'create' ? 'teamName' : 'teamId');
   if (d.challenge === 'relay' && d.teamMode === 'create') required.push('teamSize');
-  if (d.challenge === 'loops') required.push('estLoops');
+  if (d.challenge === 'loops') required.push('estLoops', 'startDay', 'startTime');
   if (minor) required.push('guardianName', 'guardianRelation', 'guardianPhone', 'guardianEmail', 'guardianConsent', 'guardianSignature');
   const missing = required.filter((k) => !d[k]);
   if (missing.length) return 'Some required information is missing. Please go back and complete every required field.';
@@ -302,6 +304,7 @@ function sendConfirmation_(rec) {
     ['Challenge', rec.challengeLabel],
   ];
   if (rec.teamName) rows.push(['Team', `${rec.teamName}${rec.teamRole === 'Captain' ? ' (captain)' : ''}`]);
+  if (rec.startDay) rows.push(['First loop (estimated)', `${rec.startDay} · ${rec.startTime}`]);
   rows.push(['Date', EVENT.date], ['Start', EVENT.startTime], ['Location', EVENT.location], ['Confirmation #', rec.registrationId]);
 
   const table = rows.map(([k, v]) =>
