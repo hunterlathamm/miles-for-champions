@@ -137,6 +137,9 @@ input[readonly] { color: var(--muted); }
 .rules div { display: grid; grid-template-columns: 280px 1fr; gap: 16px; padding: 16px 20px; background: var(--bg); }
 .rules dt { font-weight: 600; }
 .rules dd { color: var(--white); }
+.rules dd b { display: block; font: italic 800 1.25rem/1.2 var(--display); text-transform: uppercase; margin-bottom: 6px; }
+.rules dd p { color: var(--muted); font-size: 1rem; }
+.rules dt { padding-top: 2px; }
 
 @media (max-width: 860px) {
   .facts { grid-template-columns: 1fr 1fr; }

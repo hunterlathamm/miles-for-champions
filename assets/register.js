@@ -25,6 +25,13 @@
     el.textContent = v || "To be announced";
     el.classList.toggle("tba", !v);
   });
+  document.querySelectorAll("[data-rule]").forEach((el) => {
+    const rule = C.rules[el.dataset.rule] || {};
+    if (!rule.headline && !rule.text) { el.textContent = "To be announced"; el.classList.add("tba"); return; }
+    const h = document.createElement("b"); h.textContent = rule.headline || "";
+    const p = document.createElement("p"); p.textContent = rule.text || "";
+    el.replaceChildren(h, p);
+  });
   document.querySelectorAll("[data-config-href]").forEach((el) => {
     const v = pick(C, el.dataset.configHref);
     if (v) el.href = v;
