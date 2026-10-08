@@ -6,7 +6,7 @@ One-page site for Ryan Latham's Miles For Champions fundraiser for Special Olymp
 - `DONATE_URL`: the donation page link (on the buttons with `data-link="DONATE_URL"`)
 - `SIGNUP_URL`: the form where runners sign up for loops
 - `CONTACT_EMAIL`: Ryan's contact email in the footer
-- The Backyard Ultra date and location (search for "coming soon")
+
 
 ## Hosting (GitHub Pages)
 1. Go to Settings → Pages, set Source to "Deploy from a branch", and choose `main` / `(root)`.
