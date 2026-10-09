@@ -8,41 +8,51 @@
   <meta property="og:title" content="Miles For Champions Backyard Ultra: Register to Run">
   <meta property="og:description" content="100 Miles. 200 Champions. One Mission. Give your miles a mission.">
   <meta property="og:image" content="assets/flyer.jpg">
-  <meta name="theme-color" content="#0b0b0b">
+  <meta name="theme-color" content="#ffffff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;1,500&family=Barlow+Condensed:ital,wght@0,700;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/register.css">
 </head>
 <body>
 
-  <nav>
+  <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="index.html">Miles <span>For</span> Champions</a>
-      <a class="btn" data-config-href="links.donate" href="#" target="_blank" rel="noopener">Donate</a>
+      <a class="logo" href="index.html"><span class="mark">MFC</span><span>Miles For Champions<small>Backyard Ultra</small></span></a>
+      <nav aria-label="Main">
+        <ul class="nav" id="nav">
+          <li><a href="index.html#race">The Race</a></li>
+          <li><a href="index.html#format">Rules &amp; Format</a></li>
+          <li><a href="index.html#location">Location &amp; Pit Area</a></li>
+          <li><a href="index.html#schedule">Schedule</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn small" href="#register">Register Now</a>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
-  </nav>
+  </header>
 
-  <header class="hero reg-hero">
+  <section class="reg-hero">
     <div class="wrap">
-      <p class="eyebrow">Miles for Champions</p>
-      <h1 class="display">The Backyard <span class="red">Ultra</span></h1>
-      <div class="brush">100 Miles. 200 Champions. One Mission.</div>
-      <h2 class="display mission">Give Your Miles a Mission.</h2>
+      <span class="eyebrow">Miles for Champions</span>
+      <h1>The Backyard Ultra</h1>
+      <p class="slogan">100 Miles. 200 Champions. One Mission.</p>
+      <h2 class="mission">Give Your Miles a Mission.</h2>
       <p class="sub">Whether you're running 100 miles solo, joining a relay team, or running a few loops, every mile helps us move closer to giving 200 Special Olympics Champions a season of sports.</p>
       <ul class="facts">
-        <li><span>Date</span><b data-config="event.date"></b></li>
-        <li><span>Start time</span><b data-config="event.startTime"></b></li>
-        <li><span>Location</span><b data-config="event.location"></b></li>
-        <li><span>Register by</span><b data-config="event.registrationDeadline"></b></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><span>Date</span><b data-config="event.date"></b></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><span>Start time</span><b data-config="event.startTime"></b></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><span>Location</span><b data-config="event.location"></b></div></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg><div><span>Register by</span><b data-config="event.registrationDeadline"></b></div></li>
       </ul>
       <div class="btns">
         <a class="btn" href="#register">Register to Run</a>
-        <a class="btn ghost" href="#event-info">Event Info</a>
+        <a class="btn secondary" href="#event-info">Event Info</a>
       </div>
     </div>
-  </header>
+  </section>
 
   <section class="register" id="register">
     <div class="wrap">
@@ -65,7 +75,7 @@
 
         <!-- Step 1 -->
         <div class="step" data-step="0">
-          <h2 class="display step-title" tabindex="-1">Choose Your <span class="red">Challenge</span></h2>
+          <h2 class="step-title" tabindex="-1">Choose Your <span class="accent">Challenge</span></h2>
           <div class="choices">
             <article class="choice" data-choice="solo">
               <div class="num">01</div>
@@ -97,7 +107,7 @@
         <!-- Step 2 -->
         <div class="step" data-step="1" hidden>
           <p class="chosen">Your challenge: <b data-chosen></b> <button type="button" class="link" data-goto="0">Change</button></p>
-          <h2 class="display step-title" tabindex="-1">Runner <span class="red">Information</span></h2>
+          <h2 class="step-title" tabindex="-1">Runner <span class="accent">Information</span></h2>
           <div class="grid">
             <div class="field"><label for="firstName">First name <i>*</i></label><input id="firstName" name="firstName" autocomplete="given-name" required></div>
             <div class="field"><label for="lastName">Last name <i>*</i></label><input id="lastName" name="lastName" autocomplete="family-name" required></div>
@@ -112,13 +122,13 @@
             <div class="field"><label for="shirt">T-shirt size <em>optional</em></label>
               <select id="shirt" name="shirt"><option value="">Select</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></div>
           </div>
-          <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
+          <div class="step-nav"><button type="button" class="btn secondary" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
         </div>
 
         <!-- Step 3 -->
         <div class="step" data-step="2" hidden>
           <p class="chosen">Your challenge: <b data-chosen></b> <button type="button" class="link" data-goto="0">Change</button></p>
-          <h2 class="display step-title" tabindex="-1">Challenge <span class="red">Details</span></h2>
+          <h2 class="step-title" tabindex="-1">Challenge <span class="accent">Details</span></h2>
 
           <div data-when="challenge=solo">
             <fieldset class="group"><legend>Have you completed an ultramarathon before? <i>*</i></legend>
@@ -166,12 +176,12 @@
             </div>
             <p class="note">These answers just help us plan. You're not locked into a distance or start time.</p>
           </div>
-          <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
+          <div class="step-nav"><button type="button" class="btn secondary" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
         </div>
 
         <!-- Step 4 -->
         <div class="step" data-step="3" hidden>
-          <h2 class="display step-title" tabindex="-1">Emergency Contact &amp; <span class="red">Race Day</span></h2>
+          <h2 class="step-title" tabindex="-1">Emergency Contact &amp; <span class="accent">Race Day</span></h2>
           <h3 class="sub-title">Emergency contact</h3>
           <div class="grid">
             <div class="field"><label for="ecName">Full name <i>*</i></label><input id="ecName" name="ecName" required></div>
@@ -204,13 +214,13 @@
             <div class="field"><label for="heardAbout">How did you hear about this event? <em>optional</em></label>
               <select id="heardAbout" name="heardAbout"><option value="">Select</option><option>Instagram</option><option>Facebook</option><option>Running club</option><option>Friend or family</option><option>Other</option></select></div>
           </div>
-          <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
+          <div class="step-nav"><button type="button" class="btn secondary" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
         </div>
 
         <!-- Step 5 -->
         <div class="step" data-step="4" hidden>
           <div class="mission-panel">
-            <h2 class="display step-title" tabindex="-1">Give Your Miles a <span class="red">Mission</span></h2>
+            <h2 class="step-title" tabindex="-1">Give Your Miles a <span class="accent">Mission</span></h2>
             <p class="big-line">We're running for something bigger than a finish line.</p>
             <p>Our mission is to raise <b>$24,000</b> to help provide <b>200 Special Olympics Champions</b> with a season of sports.</p>
             <p>Just $120 can help give one Champion access to a season of athletic opportunities, including equipment, uniforms, and competition experiences.</p>
@@ -229,12 +239,12 @@
             <p class="note">Fundraising is optional, and choosing an option doesn't make or charge a donation.</p>
           </fieldset>
           <p><a class="text-link" data-config-href="links.learnMore" href="index.html" target="_blank" rel="noopener">Learn More About Miles for Champions →</a></p>
-          <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
+          <div class="step-nav"><button type="button" class="btn secondary" data-back>Back</button><button type="button" class="btn" data-next>Next</button></div>
         </div>
 
         <!-- Step 6 -->
         <div class="step" data-step="5" hidden>
-          <h2 class="display step-title" tabindex="-1">Review &amp; <span class="red">Waiver</span></h2>
+          <h2 class="step-title" tabindex="-1">Review &amp; <span class="accent">Waiver</span></h2>
           <div class="review" id="review"></div>
 
           <h3 class="sub-title">Participant waiver</h3>
@@ -261,14 +271,14 @@
           </div>
 
           <p class="submit-error" id="submit-error" role="alert" hidden></p>
-          <div class="step-nav"><button type="button" class="btn ghost" data-back>Back</button><button type="submit" class="btn" id="submit">Complete Registration</button></div>
+          <div class="step-nav"><button type="button" class="btn secondary" data-back>Back</button><button type="submit" class="btn" id="submit">Complete Registration</button></div>
         </div>
       </form>
 
       <!-- Confirmation -->
       <div class="done" id="done" hidden tabindex="-1">
-        <div class="brush">You're In!</div>
-        <h2 class="display">Welcome to the Miles for Champions <span class="red">Backyard Ultra!</span></h2>
+        <span class="badge done-badge">You're In!</span>
+        <h2>Welcome to the Miles for Champions <span class="accent">Backyard Ultra!</span></h2>
         <p class="big-line">You're officially part of something bigger than a race.</p>
         <p>Whether you're taking on 100 miles, joining a team, or running a few loops, your miles are helping us champion inclusion, opportunity, and the power of sports.</p>
         <p class="mission-line">Give Your Miles a Mission.</p>
@@ -276,7 +286,7 @@
         <p class="note" id="done-email"></p>
         <div class="btns">
           <button type="button" class="btn" id="share">Share the Mission</button>
-          <a class="btn ghost" data-config-href="links.donate" href="#" target="_blank" rel="noopener">Sponsor a Champion</a>
+          <a class="btn secondary" data-config-href="links.donate" href="#" target="_blank" rel="noopener">Sponsor a Champion</a>
         </div>
       </div>
     </div>
@@ -285,7 +295,7 @@
   <section class="event-info" id="event-info">
     <div class="wrap">
       <p class="eyebrow">Event information</p>
-      <h2 class="display">How the <span class="red">Ultra</span> Works</h2>
+      <h2>How the <span class="accent">Ultra</span> Works</h2>
       <p class="lead">This is a modified Backyard Ultra-style event. Each loop is 4.167 miles, and 24 loops make approximately 100 miles.</p>
       <div class="formats">
         <div><b>Solo</b><span>One runner completes 24 loops.</span></div>
@@ -312,6 +322,7 @@
   </footer>
 
   <script src="assets/config.js"></script>
+  <script src="assets/site.js"></script>
   <script src="assets/register.js"></script>
 </body>
 </html>

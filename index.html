@@ -3,172 +3,320 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Miles For Champions</title>
-  <meta name="description" content="Ryan Latham is running 100 miles to help give 200 Special Olympics Champions a season of sports. Join Miles For Champions: run, give, share.">
-  <meta property="og:title" content="Miles For Champions">
+  <title>Miles For Champions Backyard Ultra · Feb 27–28, 2027</title>
+  <meta name="description" content="4.167 miles. Every hour. On the hour. Run 100 miles solo, build a relay team, or run a few loops at the Miles For Champions Backyard Ultra near Lake Arcadia, Oklahoma City, and help give 200 Special Olympics Champions a season of sports.">
+  <meta property="og:title" content="Miles For Champions Backyard Ultra">
   <meta property="og:description" content="Giving everyone the opportunity to experience what sports can do. Help give 200 Special Olympics Champions a season of sports.">
   <meta property="og:image" content="assets/flyer.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0b0b0b">
+  <meta name="theme-color" content="#ffffff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;1,500&family=Barlow+Condensed:ital,wght@0,700;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/home.css">
 </head>
 <body>
 
-  <nav>
+  <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="#top">Miles <span>For</span> Champions</a>
-      <a class="btn" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener">Donate</a>
-    </div>
-  </nav>
-
-  <header class="hero" id="top">
-    <div class="wrap">
-      <h1 class="display">Miles<span class="for">For <span class="red">Champions</span></span></h1>
-      <div class="brush">Run with a bigger purpose</div>
-      <p class="tagline">Giving everyone the opportunity to experience what sports can do.</p>
-      <p class="sub">Ryan Latham is running 100 miles to help give <strong>200 Special Olympics Champions</strong> a season of sports.</p>
-      <div class="btns">
-        <a class="btn" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener">Sponsor a Champion</a>
-        <a class="btn ghost" href="#join">Join The Backyard Ultra</a>
-      </div>
+      <a class="logo" href="#top"><span class="mark">MFC</span><span>Miles For Champions<small>Backyard Ultra</small></span></a>
+      <nav aria-label="Main">
+        <ul class="nav" id="nav">
+          <li><a href="#race">The Race</a></li>
+          <li><a href="#format">Rules &amp; Format</a></li>
+          <li><a href="#location">Location &amp; Pit Area</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="btn small" href="register.html">Register Now</a>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
   </header>
 
-  <div class="stats">
-    <div class="wrap">
-      <div class="stat"><b class="red">$24,000</b><span>Our goal</span></div>
-      <div class="stat"><b>200</b><span>Champions</span></div>
-      <div class="stat"><b>$120</b><span>One athlete's season</span></div>
-      <div class="stat"><b>100</b><span>Miles in 24 hours</span></div>
-    </div>
-  </div>
-
-  <section id="ultra">
-    <div class="wrap event-grid">
-      <div>
-        <p class="eyebrow">The big challenge · February 27–28, 2027</p>
-        <h2 class="display">The Backyard <span class="red">Ultra</span></h2>
-        <p class="lead">“I’m running 100 miles, but I don’t want to do it alone. Come run with me!”</p>
-        <p>A backyard ultra is simple: run a <strong>4.167-mile loop</strong> every hour, on the hour. Do that for <strong>24 hours</strong> and you’ve covered <strong>100 miles</strong>.</p>
-        <div class="callout">
-          <strong>Anyone can join!</strong>
-          You don’t have to be an ultrarunner. Pick your challenge: run 100 miles solo, build a relay team, or run a few loops.
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Miles For Champions Backyard Ultra</span>
+          <h1>4.167 Miles. <span>Every Hour.</span> <span>On the Hour.</span></h1>
+          <p class="sub">Run 100 miles solo, build a relay team, or join us for a few loops. Every mile helps give 200 Special Olympics Champions a season of sports.</p>
+          <ul class="facts">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Feb. 27–28, 2027</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Near Lake Arcadia, Oklahoma City</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 1:00 PM start</li>
+          </ul>
+          <p class="secondary-line"><b>24 loops</b> · 100 miles · 24 hours · Solo, relay, or a few loops</p>
+          <div class="btns">
+            <a class="btn" href="register.html">Claim Your Spot</a>
+            <a class="btn secondary" href="#format">View Race Rules</a>
+          </div>
         </div>
-        <ul class="details">
-          <li><b>When:</b> Feb. 27 @ 1 - Feb. 28 @ 1</li>
-          <li><b>Where:</b> Private property about 3 miles east of Lake Arcadia, Oklahoma City</li>
-          <li><b>Loop:</b> 4.167 miles, starting every hour</li>
-        </ul>
+        <div class="dial" aria-hidden="true">
+          <svg viewBox="0 0 260 260">
+            <circle class="ring-bg" cx="130" cy="130" r="110" fill="none" stroke-width="16"/>
+            <circle class="arc" cx="130" cy="130" r="110" fill="none" stroke-width="16" stroke-dasharray="691" stroke-dashoffset="0"/>
+            <circle cx="130" cy="130" r="110" fill="none" stroke="#fff" stroke-width="18" stroke-dasharray="2.5 26.3" transform="rotate(-90 130 130)"/>
+            <text class="big" x="130" y="140" text-anchor="middle">24</text>
+            <text class="small" x="130" y="170" text-anchor="middle">LOOPS</text>
+          </svg>
+          <div class="dial-stats">
+            <div><b>4.167</b><span>Miles / loop</span></div>
+            <div><b>100</b><span>Miles</span></div>
+            <div><b>24</b><span>Hours</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap countdown-wrap">
+      <div class="countdown" id="countdown">
+        <div class="label" id="countdown-label">Countdown to the first loop<small>Saturday, Feb. 27, 2027 · 1:00 PM</small></div>
+        <div class="units" role="timer" aria-live="off">
+          <div class="unit"><b data-u="d">--</b><span>Days</span></div>
+          <div class="unit"><b data-u="h">--</b><span>Hours</span></div>
+          <div class="unit"><b data-u="m">--</b><span>Min</span></div>
+          <div class="unit"><b data-u="s">--</b><span>Sec</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="race">
+      <div class="wrap">
+        <span class="eyebrow">The Race</span>
+        <h2>Pick your challenge</h2>
+        <p class="lead">You don't have to be an ultrarunner. Go the full 100 miles, share the distance with a team, or come run a few loops. Everyone runs for the same mission.</p>
+        <p class="intro-quote">“I'm running 100 miles, but I don't want to do it alone. Come run with me!” — Ryan Latham</p>
+        <div class="grid-3 ways">
+          <article class="card way">
+            <div class="icon orange"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
+            <div class="num">Option 01</div>
+            <h3>100 Miles Solo</h3>
+            <p class="tag">24 loops. 100 miles. One runner.</p>
+            <p>Take on the full challenge: one 4.167-mile loop every hour, on the hour, for 24 hours.</p>
+            <a class="btn" href="register.html?challenge=solo">Take on 100 Miles</a>
+          </article>
+          <article class="card way">
+            <div class="icon orange"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="num">Option 02</div>
+            <h3>Relay Team</h3>
+            <p class="tag">100 miles. One team. One mission.</p>
+            <p>Build a team and split the 24 loops however you like. Together, your team covers all 100 miles.</p>
+            <a class="btn" href="register.html?challenge=relay">Build or Join a Team</a>
+          </article>
+          <article class="card way">
+            <div class="icon orange"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></div>
+            <div class="num">Option 03</div>
+            <h3>Run a Few Loops</h3>
+            <p class="tag">Your distance. Your pace. Your mission.</p>
+            <p>Join us for one loop, a few loops, or as many as you'd like. Every mile matters.</p>
+            <a class="btn" href="register.html?challenge=loops">Run a Few Loops</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="format" class="alt">
+      <div class="wrap">
+        <span class="eyebrow">Rules &amp; Format</span>
+        <h2>The Backyard format</h2>
+        <p class="lead">Simple rules, big challenge. Here's how a backyard ultra works.</p>
+        <div class="grid-3 format">
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></div>
+            <h3>The Yard</h3>
+            <div class="stat">4.167 mi</div>
+            <p>Every loop is the same 4.167-mile course. Run it, walk it, and be back at the start before the next loop begins.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3>The Clock</h3>
+            <div class="stat">Every hour</div>
+            <p>A new loop starts at the top of every hour. You have 60 minutes per loop. Finish early and the rest of the hour is yours to rest and refuel.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></div>
+            <h3>The Goal</h3>
+            <div class="stat">24 loops</div>
+            <p>24 loops in 24 hours adds up to 100 miles. Go solo, share it with a relay team, or run a few loops toward the mission.</p>
+          </div>
+        </div>
+
+        <h3 class="rules-head" id="rules">Full race rules</h3>
+        <div class="rules" id="rules-list"></div>
+      </div>
+    </section>
+
+    <section id="essentials">
+      <div class="wrap">
+        <span class="eyebrow">Race Day Essentials</span>
+        <h2>Everything you need to know</h2>
+        <div class="grid-2 essentials">
+          <div class="card tile">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg></div>
+            <h3>Course Map &amp; Elevation</h3>
+            <p>The 4.167-mile loop map and elevation profile will be shared with registered runners before race day.</p>
+            <span class="badge soon">Coming soon</span>
+          </div>
+          <a class="card tile" href="#location">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 21 12 3l8.5 18"/><path d="m12 13-4 8M12 13l4 8"/><path d="M2 21h20"/></svg></div>
+            <h3>Pit Crew &amp; Tent Setup</h3>
+            <p>The start/finish area is home base for runners, relay teams, crews, and supporters. Setup details will be shared before race day.</p>
+            <span class="more">Location &amp; pit area →</span>
+          </a>
+          <a class="card tile" href="#location">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
+            <h3>Aid Station &amp; Nutrition</h3>
+            <p>Plan to bring your own hydration, nutrition, and gear. Details about available aid, water, and restrooms are coming before race day.</p>
+            <span class="more">What to bring →</span>
+          </a>
+          <a class="card tile" href="#schedule">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <h3>Schedule of Events</h3>
+            <p>Loop 1 starts Saturday at 1:00 PM. The final loop starts Sunday at noon, and the event wraps at 1:00 PM.</p>
+            <span class="more">See the schedule →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="alt">
+      <div class="wrap">
+        <span class="eyebrow">Schedule</span>
+        <h2>24 hours, hour by hour</h2>
+        <p class="lead">A new loop starts at the top of every hour. Check-in and arrival details will be shared with registered runners before race day.</p>
+        <div class="schedule">
+          <div class="card day">
+            <h3><span class="icon orange" style="margin:0;width:40px;height:40px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span> Saturday, Feb. 27</h3>
+            <ol class="timeline">
+              <li><time>1:00 PM</time><div><b>Loop 1 starts</b><span>The Backyard Ultra begins.</span></div></li>
+              <li><time>2:00 PM</time><div><b>Loop 2 starts</b><span>And a new loop every hour after that.</span></div></li>
+              <li><time>After dark</time><div><b>Night loops</b><span>Headlamp or other lighting and reflective or high-visibility gear are required.</span></div></li>
+              <li><time>11:00 PM</time><div><b>Loop 11 starts</b><span>Last loop of Saturday.</span></div></li>
+            </ol>
+          </div>
+          <div class="card day">
+            <h3><span class="icon" style="margin:0;width:40px;height:40px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span> Sunday, Feb. 28</h3>
+            <ol class="timeline">
+              <li><time>12:00 AM</time><div><b>Loop 12 starts</b><span>The halfway point.</span></div></li>
+              <li><time>12:00 PM</time><div><b>Loop 24 starts</b><span>The final loop.</span></div></li>
+              <li><time>1:00 PM</time><div><b>Event concludes</b><span>24 loops. 100 miles. Done.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="wrap">
+        <span class="eyebrow">Location &amp; Pit Area</span>
+        <h2>Where it all happens</h2>
+        <div class="grid-2 location">
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <h3>The venue</h3>
+            <p>Private property approximately 3 miles from Lake Arcadia in Oklahoma City, Oklahoma.</p>
+            <ul>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> The exact address and arrival instructions will be shared with registered participants before race day.</li>
+            </ul>
+            <div class="btns" style="margin-top:22px"><a class="btn secondary small" href="https://www.google.com/maps/search/?api=1&amp;query=Lake+Arcadia+Oklahoma" target="_blank" rel="noopener">View Lake Arcadia on Google Maps</a></div>
+          </div>
+          <div class="card">
+            <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 21 12 3l8.5 18"/><path d="m12 13-4 8M12 13l4 8"/><path d="M2 21h20"/></svg></div>
+            <h3>Start/finish &amp; pit area</h3>
+            <p>A designated start/finish area is the central gathering point for runners, relay teams, crews, and supporters.</p>
+            <ul>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Relay exchanges happen here between loops.</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Bring your own hydration, nutrition, running gear, and personal supplies for your distance.</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Details about aid, water, restrooms, and crew setup will be shared before race day.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="mission alt">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">The Mission</span>
+          <h2>Run with a bigger purpose</h2>
+          <p class="tagline">Giving everyone the opportunity to experience what sports can do.</p>
+          <p>Every loop at the Backyard Ultra helps give Special Olympics athletes, who are called Champions, a full season of sports.</p>
+          <p class="quote">“Sports changed my life. Now I'm using my miles to help change someone else's.”</p>
+          <p class="sign">Ryan Latham, who grew up with dyslexia and found confidence, teammates, and discipline through sports.</p>
+        </div>
+        <div class="card goal-card">
+          <span class="eyebrow">Our goal</span>
+          <div class="amount">$24,000</div>
+          <p class="amount-sub">to help give 200 Special Olympics Champions a season of sports</p>
+          <div class="impact">
+            <div><b>$120</b><span>1 Champion</span></div>
+            <div><b>$600</b><span>5 Champions</span></div>
+            <div><b>$1,200</b><span>10 Champions</span></div>
+          </div>
+          <a class="btn" data-config-href="links.donate" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Sponsor a Champion</a>
+        </div>
+      </div>
+      <div class="wrap journey">
+        <h3>The road to Boston</h3>
+        <ol class="road">
+          <li><div class="when">Dec 2026</div><h3>Dallas Half</h3><div class="dist">13.1 miles</div><div class="target">$3,000<small>25 Champions</small></div></li>
+          <li><div class="when">Jan 2027</div><h3>Houston Marathon</h3><div class="dist">26.2 miles</div><div class="target">$6,000<small>50 Champions</small></div></li>
+          <li class="feature"><div class="when">Feb 2027</div><h3>Backyard Ultra</h3><div class="dist">100 miles · 24 hours</div><div class="target">$18,000<small>150 Champions</small></div></li>
+          <li class="feature"><div class="when">Apr 2027</div><h3>Boston Marathon</h3><div class="dist">26.2 miles</div><div class="target">$24,000<small>200 Champions</small></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="center">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, answered</h2>
+        </div>
+        <div class="faq">
+          <details><summary><span class="t">How do I register?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>Click Register Now, pick your challenge (100 Miles Solo, Relay Team, or Run a Few Loops) and complete the form. Relay captains register first and create the team; teammates then register on their own and pick that team.</p></details>
+          <details><summary><span class="t">Do I have to run 100 miles?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>Not at all. You can go the full 100 miles solo, split the 24 loops with a relay team, or run one loop, a few loops, or as many as you'd like.</p></details>
+          <details><summary><span class="t">How do relay teams work?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>Your team works together to complete 24 loops. One designated runner represents the team on each hourly loop, and exchanges happen at the start/finish area between loops. Rotate runners however you like, as long as each loop is finished within 60 minutes.</p></details>
+          <details><summary><span class="t">Can my crew set up at the course?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>The start/finish area is the central gathering point for runners, relay teams, crews, and supporters. Details about crew setup, aid, water, and restrooms will be shared with registered participants before race day.</p></details>
+          <details><summary><span class="t">What do I need for night loops?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>The event runs overnight. If you're running after dark, you must carry a headlamp or other appropriate lighting and wear reflective or high-visibility gear.</p></details>
+          <details><summary><span class="t">What if I need to drop or stop?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>Let event staff know if you withdraw or run into an issue on the course. Runner safety comes first, and event organizers may stop a runner's participation when it's necessary for safety.</p></details>
+          <details><summary><span class="t">Where exactly is the race?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>On private property approximately 3 miles from Lake Arcadia in Oklahoma City. The exact address and arrival instructions go out to registered participants before race day.</p></details>
+          <details><summary><span class="t">Do I have to fundraise?</span><span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+            <p>No, fundraising is optional. If you'd like to help, $120 gives one Special Olympics Champion a season of sports, and every dollar counts toward our $24,000 goal.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Give your miles a mission</h2>
+        <p>100 miles. 200 Champions. One mission. Claim your spot at the Miles For Champions Backyard Ultra.</p>
         <div class="btns">
-          <a class="btn" href="#join">Join the Run</a>
+          <a class="btn" href="register.html">Register Now</a>
+          <a class="btn secondary" data-config-href="links.donate" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener">Sponsor a Champion</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="join" id="join">
-    <div class="wrap">
-      <p class="eyebrow">Get involved</p>
-      <h2 class="display">Join The <span class="red">Backyard Ultra</span></h2>
-      <p class="lead">There are three ways to be part of it. Every one of them matters.</p>
-      <div class="cards">
-        <div class="card">
-          <div class="num">01</div>
-          <h3>100 Miles Solo</h3>
-          <p>Go the full distance. One 4.167-mile loop every hour, on the hour, for 24 hours.</p>
-          <a class="btn" href="register.html?challenge=solo">Join the Run</a>
-        </div>
-        <div class="card">
-          <div class="num">02</div>
-          <h3>Relay Team</h3>
-          <p>Build a team and split the loops. Together, your team covers all 100 miles.</p>
-          <a class="btn" href="register.html?challenge=relay">Join the Run</a>
-        </div>
-        <div class="card">
-          <div class="num">03</div>
-          <h3>Solo Loops</h3>
-          <p>Run one loop, five loops, or as many as you want. Every mile is a mile for the Champions.</p>
-          <a class="btn" href="register.html?challenge=loops">Join the Run</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="goal">
-    <div class="wrap">
-      <p class="eyebrow">Our goal</p>
-      <div class="display big">$24,000</div>
-      <p class="lead">To help give 200 Special Olympics Champions a season of sports.</p>
-      <div class="math"><span>$120</span><i>×</i><span>200 Champions</span><i>=</i><span class="red">$24,000</span></div>
-    </div>
-  </section>
-
-  <section class="journey" id="journey">
-    <div class="wrap">
-      <p class="eyebrow">The road to Boston</p>
-      <h2 class="display">Four races. <span class="red">One finish line.</span></h2>
-      <p class="lead">Miles For Champions is bigger than one run. Follow the journey from Dallas to Boston — each race moves us closer to 200 Champions.</p>
-      <ol class="timeline">
-        <li>
-          <div class="when">Dec 2026</div>
-          <h3>Dallas</h3>
-          <div class="dist">Half Marathon · 13.1 mi</div>
-          <div class="target">$3,000 <small>25 Champions</small></div>
-        </li>
-        <li>
-          <div class="when">Jan 2027</div>
-          <h3>Houston</h3>
-          <div class="dist">Marathon · 26.2 mi</div>
-          <div class="target">$6,000 <small>50 Champions</small></div>
-        </li>
-        <li class="feature">
-          <div class="when">Feb 2027</div>
-          <h3>Backyard Ultra</h3>
-          <div class="dist">100 miles · 24 hours</div>
-          <div class="target">$18,000 <small>150 Champions</small></div>
-        </li>
-        <li class="feature">
-          <div class="when">Apr 2027</div>
-          <h3>Boston</h3>
-          <div class="dist">Marathon · 26.2 mi</div>
-          <div class="target red">$24,000 <small>200 Champions</small></div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="why" id="why">
-    <div class="wrap">
-      <p class="eyebrow">Why I run</p>
-      <blockquote>Sports changed my life. Now I’m using my miles to help change someone else’s.</blockquote>
-      <p>Growing up with dyslexia, school was always a fight. But on the field, I found confidence, teammates who became lifelong friends, and the discipline that still shapes my days.</p>
-      <p>Special Olympics calls its athletes <strong>Champions</strong> — and every one of them deserves that same chance to discover what sports can do. Qualifying for Boston was about proving something to myself. This is about using what I’ve been given for someone else.</p>
-      <p>— Ryan Latham</p>
-    </div>
-  </section>
-
-  <section class="final">
-    <div class="wrap">
-      <div class="brush">Join Miles For Champions</div>
-      <p class="lead">Run. Give. Share. Help give 200 Champions a season of sports.</p>
-      <div class="btns">
-        <a class="btn" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener">Donate</a>
-        <a class="btn ghost" href="#join">Run a loop</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="wrap">
       <span>© 2026 Miles For Champions · Benefiting Special Olympics Massachusetts</span>
-      <!-- TODO: replace with Ryan's contact email -->
-      <a href="mailto:CONTACT_EMAIL">Contact Ryan</a>
+      <span><a href="register.html">Register</a> · <a data-config-href="links.donate" href="https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642" target="_blank" rel="noopener">Donate</a> · <a href="mailto:CONTACT_EMAIL">Contact Ryan</a></span>
     </div>
   </footer>
 
+  <script src="assets/config.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

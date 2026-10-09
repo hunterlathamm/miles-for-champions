@@ -8,6 +8,10 @@ window.MFC_CONFIG = {
   // Used to decide whether a runner is under 18 on race day (YYYY-MM-DD).
   raceDay: "2027-02-27",
 
+  // Countdown on the home page (Oklahoma is UTC−6 in February).
+  raceStart: "2027-02-27T13:00:00-06:00",
+  raceEnd: "2027-02-28T13:00:00-06:00",
+
   event: {
     date: "Saturday, Feb. 27 – Sunday, Feb. 28, 2027",
     startTime: "1:00 PM Saturday · finishes 1:00 PM Sunday",
