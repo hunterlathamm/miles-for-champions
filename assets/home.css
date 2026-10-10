@@ -158,12 +158,7 @@ details[open] .chev { transform: rotate(180deg); }
     linear-gradient(180deg, #f0fdff 0%, #ffffff 100%);
 }
 .impact-split > .wrap { max-width: 1380px; }
-.brand-logo { width: min(520px, 86vw); height: auto; margin: 0 auto 28px; }
-.split-head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -.035em; margin-bottom: 14px; }
-.split-head .line2 { display: block; }
-.split-head .t { color: var(--primary); }
-.split-head .o { color: var(--accent); }
-.split-head .lead { max-width: 640px; }
+.brand-logo { width: min(520px, 86vw); height: auto; margin: 0 auto; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
 .split-card { position: relative; overflow: hidden; display: flex; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-md); min-height: 560px; }
 .split-card.run { background: linear-gradient(160deg, #ffffff 30%, #e6f7fb 100%); }
