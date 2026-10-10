@@ -7,7 +7,7 @@
   const submitBtn = document.getElementById("submit");
   const submitError = document.getElementById("submit-error");
 
-  const STEP_NAMES = ["Choose Your Challenge", "Runner Information", "Challenge Details", "Emergency Contact & Race Day", "Support the Mission", "Waiver & Review"];
+  const STEP_NAMES = ["Choose Your Challenge", "Runner Information", "Challenge Details", "Emergency Contact & Race Day", "Invest in the Mission", "Waiver & Review"];
   const CHALLENGES = { solo: "100-Mile Solo Challenge", relay: "100-Mile Relay Team", loops: "Run a Few Loops" };
   const STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
 
@@ -247,7 +247,7 @@
     }
     rows.push(["Emergency contact", `${val("ecName")} (${val("ecRelation")}) · ${val("ecPhone")}`, 3]);
     if (isMinor()) rows.push(["Parent/guardian", `${val("guardianName")} · ${val("guardianPhone")}`, 3]);
-    rows.push(["Fundraising", val("fundraising"), 4]);
+    rows.push(["Registration donation", val("regDonation") === "Donated $50" ? "$50 donation made" : "Will donate $50 before race day", 4]);
 
     const review = document.getElementById("review");
     review.replaceChildren(...rows.map(([k, v, step]) => {
@@ -319,6 +319,7 @@
       d.append(dt, dd);
       return d;
     }));
+    document.getElementById("done-donate").hidden = data.regDonation === "Donated $50";
     if (out.emailSent) document.getElementById("done-email").textContent = `A confirmation email is on its way to ${data.email}.`;
     const done = document.getElementById("done");
     done.hidden = false;

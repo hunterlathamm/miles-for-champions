@@ -51,6 +51,11 @@ h3 { font-size: 1.25rem; font-weight: 700; line-height: 1.3; }
 .btn.secondary { background: #fff; color: var(--heading); border-color: var(--line); }
 .btn.secondary:hover { border-color: var(--primary); color: var(--primary); }
 .btn.small { padding: 11px 20px; font-size: .9rem; }
+.btn.big { font-size: 1.15rem; padding: 18px 30px; }
+.btn.big svg { transition: transform .15s; }
+.btn.big:hover svg { transform: translateX(3px); }
+.btn.orange { background: #ea580c; border-color: #ea580c; }
+.btn.orange:hover { background: #c2410c; border-color: #c2410c; }
 
 /* Header */
 .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }

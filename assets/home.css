@@ -160,12 +160,8 @@ details[open] .chev { transform: rotate(180deg); }
 .split-impact { list-style: none; display: grid; gap: 10px; margin: 26px 0 30px; }
 .split-impact li { display: flex; align-items: center; gap: 12px; font: 600 .78rem/1.35 var(--body); text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .split-impact .ic { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-text); }
+.split-card .btn.big { margin-top: auto; align-self: flex-start; }
 .split-impact b { display: block; font: 800 1.35rem/1.1 var(--head); color: var(--accent-text); text-transform: none; letter-spacing: -.01em; }
-.btn.big { margin-top: auto; align-self: flex-start; font-size: 1.15rem; padding: 18px 30px; }
-.btn.big svg { transition: transform .15s; }
-.btn.big:hover svg { transform: translateX(3px); }
-.btn.orange { background: #ea580c; border-color: #ea580c; }
-.btn.orange:hover { background: #c2410c; border-color: #c2410c; }
 .split-photo { position: absolute; right: 0; bottom: 0; height: 100%; width: min(42%, 400px); object-fit: cover; object-position: center top; }
 .run .split-photo { border-radius: 999px 0 0 0 / 260px 0 0 0; }
 .give .split-photo { height: 72%; width: min(42%, 400px); top: 0; bottom: auto; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 85% 90% at 65% 40%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 85% 90% at 65% 40%, #000 60%, transparent 100%); }

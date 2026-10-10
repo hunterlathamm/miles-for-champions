@@ -15,6 +15,7 @@ const EVENT = {
   location: 'Private property about 3 miles east of Lake Arcadia, Oklahoma City',
   raceDay: '2027-02-27',
   site: 'https://milesforchampions.com/',
+  donate: 'https://www.givengain.com/project/ryan-raising-funds-for-special-olympics-massachusetts-128642',
 };
 
 const CHALLENGES = { solo: '100-Mile Solo', relay: '100-Mile Relay Team', loops: 'Run a Few Loops' };
@@ -54,7 +55,7 @@ const REG_COLUMNS = [
   ['Medical / Allergies', 'medical'],
   ['Pre-Race Support Notes', 'accessibility'],
   ['Heard About Us', 'heardAbout'],
-  ['Fundraising Interest', 'fundraising'],
+  ['Registration Donation', 'regDonation'],
   ['Waiver Agreed', 'agreeWaiver'],
   ['Rules Agreed', 'agreeRules'],
   ['Info Accurate', 'agreeAccurate'],
@@ -95,7 +96,7 @@ function setup() {
 }
 
 function writeHeader_(sheet, headers) {
-  sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold').setBackground('#e3121b').setFontColor('#ffffff');
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold').setBackground('#0e7490').setFontColor('#ffffff');
   sheet.setFrozenRows(1);
 }
 
@@ -109,7 +110,7 @@ function col_(header) {
 function buildSummary_(ss) {
   const sum = ss.getSheetByName('Summary') || ss.insertSheet('Summary');
   sum.clear();
-  const ch = col_('Challenge'), loops = col_('Estimated Loops'), fund = col_('Fundraising Interest'), minor = col_('Minor'), shirt = col_('T-Shirt Size');
+  const ch = col_('Challenge'), loops = col_('Estimated Loops'), don = col_('Registration Donation'), minor = col_('Minor'), shirt = col_('T-Shirt Size');
   const rows = [
     ['Miles For Champions Backyard Ultra', ''],
     ['', ''],
@@ -127,16 +128,16 @@ function buildSummary_(ss) {
     [['Not sure yet', `=COUNTIF(${loops},"Not sure yet")`],
     ['Total estimated loops', `=SUMPRODUCT(IFERROR(VALUE(REGEXEXTRACT(${loops},"^\\d+")),0))`],
     ['', ''],
-    ['Fundraising interest', ''],
-    ["Yes, I'd love to help fundraise!", `=COUNTIF(${fund},"Yes, I'd love to help fundraise!")`],
-    ['Maybe, send me more information.', `=COUNTIF(${fund},"Maybe, send me more information.")`],
-    ["I'm here to run and support the mission!", `=COUNTIF(${fund},"I'm here to run and support the mission!")`],
+    ['$50 registration donations', ''],
+    ['Said they donated $50 at registration', `=COUNTIF(${don},"Donated $50")`],
+    ['Will donate before race day (follow up)', `=COUNTIF(${don},"Will donate before race day")`],
+    ['Expected registration donations ($)', `=50*COUNTA(${col_('Registration ID')})`],
     ['', ''],
     ['T-shirt sizes', ''],
   ]).concat(['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'].map((s) => [s, `=COUNTIF(${shirt},"${s}")`]));
   sum.getRange(1, 1, rows.length, 2).setValues(rows);
   sum.getRange('A1').setFontSize(16).setFontWeight('bold');
-  [3, 11, 30, 35].forEach((r) => sum.getRange(r, 1).setFontWeight('bold').setFontColor('#e3121b'));
+  rows.forEach((row, i) => { if (row[0] && !row[1] && i > 0) sum.getRange(i + 1, 1).setFontWeight('bold').setFontColor('#c2410c'); });
   sum.setColumnWidth(1, 320);
 }
 
@@ -238,7 +239,7 @@ function doPost(e) {
 
 function validate_(d, minor) {
   if (!CHALLENGES[d.challenge]) return 'Please choose a challenge.';
-  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'street', 'city', 'state', 'zip', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'fundraising', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
+  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'street', 'city', 'state', 'zip', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'regDonation', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
   if (d.challenge === 'solo') required.push('ultraBefore', 'longest', 'soloCrew');
   else required.push('crew');
   if (d.challenge === 'relay') required.push('teamMode', d.teamMode === 'create' ? 'teamName' : 'teamId');
@@ -307,23 +308,27 @@ function sendConfirmation_(rec) {
   ];
   if (rec.teamName) rows.push(['Team', `${rec.teamName}${rec.teamRole === 'Captain' ? ' (captain)' : ''}`]);
   if (rec.startDay) rows.push(['First loop (estimated)', `${rec.startDay} · ${rec.startTime}`]);
+  rows.push(['Registration donation', rec.regDonation === 'Donated $50' ? '$50 donation made' : 'Due before race day']);
   rows.push(['Date', EVENT.date], ['Start', EVENT.startTime], ['Location', EVENT.location], ['Confirmation #', rec.registrationId]);
 
   const table = rows.map(([k, v]) =>
     `<tr><td style="padding:8px 16px 8px 0;color:#777;text-transform:uppercase;font-size:12px;letter-spacing:1px">${esc_(k)}</td><td style="padding:8px 0;font-weight:bold">${esc_(v)}</td></tr>`).join('');
+  const donateNote = rec.regDonation === 'Donated $50' ? ''
+    : `<p style="padding:12px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:8px"><b>One last step:</b> your spot is confirmed once your $50 registration donation is received. <a href="${EVENT.donate}" style="color:#c2410c;font-weight:bold">Make your $50 donation</a>.</p>`;
   const captainNote = rec.teamRole === 'Captain'
     ? `<p>You're the captain of <b>${esc_(rec.teamName)}</b>. Send your teammates to <a href="${EVENT.site}register.html?challenge=relay">the registration page</a>. Each of them registers on their own and selects your team.</p>` : '';
 
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:560px;color:#111">
-      <h1 style="color:#e3121b;font-style:italic;text-transform:uppercase;margin-bottom:4px">You're In!</h1>
+      <h1 style="color:#c2410c;font-style:italic;text-transform:uppercase;margin-bottom:4px">You're In!</h1>
       <h2 style="margin-top:0">Welcome to the Miles for Champions Backyard Ultra!</h2>
       <p>You're officially part of something bigger than a race.</p>
       <p>Whether you're taking on 100 miles, joining a team, or running a few loops, your miles are helping us champion inclusion, opportunity, and the power of sports.</p>
-      <p style="font-weight:bold;text-transform:uppercase;color:#e3121b">Give Your Miles a Mission.</p>
+      <p style="font-weight:bold;text-transform:uppercase;color:#c2410c">Give Your Miles a Mission.</p>
       <table style="border-collapse:collapse;margin:16px 0">${table}</table>
+      ${donateNote}
       ${captainNote}
-      <p><a href="${EVENT.site}" style="color:#e3121b">milesforchampions.com</a></p>
+      <p><a href="${EVENT.site}" style="color:#c2410c">milesforchampions.com</a></p>
     </div>`;
 
   MailApp.sendEmail({
