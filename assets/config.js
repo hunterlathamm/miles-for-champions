@@ -16,7 +16,7 @@ window.MFC_CONFIG = {
     date: "Saturday, Feb. 27 – Sunday, Feb. 28, 2027",
     startTime: "1:00 PM Saturday · finishes 1:00 PM Sunday",
     location: "Private property about 3 miles east of Lake Arcadia, Oklahoma City",
-    registrationDeadline: "",
+    registrationDeadline: "You can sign up during the event",
   },
 
   // Event rules shown under "How the Ultra Works": a short headline plus a description.
