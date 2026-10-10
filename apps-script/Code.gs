@@ -52,7 +52,7 @@ const REG_COLUMNS = [
   ['First Backyard Ultra', 'firstBackyard'],
   ['Crew / Support Person', 'crew'],
   ['Medical / Allergies', 'medical'],
-  ['Accessibility Needs', 'accessibility'],
+  ['Pre-Race Support Notes', 'accessibility'],
   ['Heard About Us', 'heardAbout'],
   ['Fundraising Interest', 'fundraising'],
   ['Waiver Agreed', 'agreeWaiver'],
