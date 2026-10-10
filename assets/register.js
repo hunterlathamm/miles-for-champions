@@ -209,26 +209,30 @@
   async function loadTeams() {
     if (teamsLoaded || val("challenge") !== "relay") return;
     const sel = form.elements.teamId;
-    const setOnly = (text) => { sel.replaceChildren(new Option(text, "")); };
-    if (!C.scriptUrl) return setOnly("Team list isn't available yet");
-    setOnly("Loading teams…");
+    const notListed = () => new Option("My relay group isn't listed", "other");
+    // No list to choose from: go straight to typing the relay group name.
+    const typeIt = () => { sel.replaceChildren(notListed()); sel.value = "other"; applyConditions(); };
+    if (!C.scriptUrl) return typeIt();
+    sel.replaceChildren(new Option("Loading relay groups…", ""));
     try {
       const res = await fetch(`${C.scriptUrl}?action=teams`);
       const data = await res.json();
       if (!data.ok) throw new Error();
       teamsLoaded = true;
-      if (!data.teams.length) return setOnly("No teams yet. Your captain needs to register first.");
-      sel.replaceChildren(new Option("Select your team", ""), ...data.teams.map((t) => new Option(t.name, t.id)));
+      if (!data.teams.length) return typeIt();
+      sel.replaceChildren(new Option("Select your relay group", ""), ...data.teams.map((t) => new Option(t.name, t.id)), notListed());
+      applyConditions();
     } catch {
-      setOnly("Couldn't load teams. Refresh the page to try again.");
+      typeIt();
     }
   }
 
   // ---- Review ----
   function teamLabel() {
     if (val("challenge") !== "relay") return "";
-    if (val("teamMode") === "create") return `${val("teamName")} (new team, you're the captain)`;
+    if (val("teamMode") === "create") return `${val("teamName")} (new relay group, you're the captain)`;
     const sel = form.elements.teamId;
+    if (sel.value === "other") return val("joinTeamName");
     return sel.value ? sel.options[sel.selectedIndex].text : "";
   }
 
@@ -240,7 +244,7 @@
       ["Email", val("email"), 1],
       ["Phone", val("phone"), 1],
     ];
-    if (val("challenge") === "relay") rows.push(["Team", teamLabel(), 2]);
+    if (val("challenge") === "relay") rows.push(["Relay group", teamLabel(), 2]);
     if (val("challenge") === "loops") {
       rows.push(["Estimated loops", val("estLoops"), 2]);
       rows.push(["First loop", `${val("startDay")} · ${val("startTime")}`, 2]);
@@ -309,7 +313,7 @@
       ["Participant", `${data.firstName} ${data.lastName}`],
       ["Challenge", CHALLENGES[data.challenge]],
     ];
-    if (data.challenge === "relay") rows.push(["Team", out.teamName || data.teamName]);
+    if (data.challenge === "relay") rows.push(["Relay group", out.teamName || data.teamName]);
     rows.push(["Date", C.event.date || "To be announced"], ["Location", C.event.location || "To be announced"], ["Confirmation #", out.registrationId]);
     document.getElementById("done-summary").replaceChildren(...rows.map(([k, v]) => {
       const d = document.createElement("div");

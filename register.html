@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=4">
-  <link rel="stylesheet" href="assets/register.css?v=4">
+  <link rel="stylesheet" href="assets/site.css?v=5">
+  <link rel="stylesheet" href="assets/register.css?v=5">
 </head>
 <body>
 
@@ -152,17 +152,18 @@
           </div>
 
           <div data-when="challenge=relay">
-            <fieldset class="group"><legend>Are you creating a team or joining an existing team? <i>*</i></legend>
-              <div class="opts"><label class="opt"><input type="radio" name="teamMode" value="create" required><span>I'm creating a team</span></label><label class="opt"><input type="radio" name="teamMode" value="join"><span>I'm joining an existing team</span></label></div>
+            <fieldset class="group"><legend>Are you creating a relay group or joining one? <i>*</i></legend>
+              <div class="opts"><label class="opt"><input type="radio" name="teamMode" value="create" required><span>I'm creating a relay group (captain)</span></label><label class="opt"><input type="radio" name="teamMode" value="join"><span>I'm joining a relay group</span></label></div>
             </fieldset>
             <div class="grid" data-when="teamMode=create">
-              <div class="field"><label for="teamName">Team name <i>*</i></label><input id="teamName" name="teamName" maxlength="60" required></div>
-              <div class="field"><label for="teamSize">Estimated number of team members <i>*</i></label><input id="teamSize" name="teamSize" type="number" min="2" max="24" inputmode="numeric" required></div>
-              <p class="note full">You're the team captain. Share this page with your teammates. Each of them registers on their own and picks your team, so you don't need to enter anyone else's information.</p>
+              <div class="field"><label for="teamName">Name of relay group <i>*</i></label><input id="teamName" name="teamName" maxlength="60" required></div>
+              <div class="field"><label for="teamSize">Estimated number of runners in your group <i>*</i></label><input id="teamSize" name="teamSize" type="number" min="2" max="24" inputmode="numeric" required></div>
+              <p class="note full">You're the captain. Share this page with your teammates. Each of them registers on their own and picks your relay group, so you don't need to enter anyone else's information.</p>
             </div>
             <div class="grid" data-when="teamMode=join">
-              <div class="field full"><label for="teamId">Select your team <i>*</i></label><select id="teamId" name="teamId" required><option value="">Select your team</option></select>
-                <p class="note">Don't see your team? Your captain needs to register first and create it.</p></div>
+              <div class="field full"><label for="teamId">Select your relay group <i>*</i></label><select id="teamId" name="teamId" required><option value="">Select your relay group</option><option value="other">My relay group isn't listed</option></select>
+                <p class="note">Don't see it? Choose "My relay group isn't listed" and type the name below.</p></div>
+              <div class="field full" data-when="teamId=other"><label for="joinTeamName">Name of relay group <i>*</i></label><input id="joinTeamName" name="joinTeamName" maxlength="60" required></div>
             </div>
           </div>
 
@@ -328,8 +329,8 @@
     </div>
   </footer>
 
-  <script src="assets/config.js?v=4"></script>
-  <script src="assets/site.js?v=4"></script>
-  <script src="assets/register.js?v=4"></script>
+  <script src="assets/config.js?v=5"></script>
+  <script src="assets/site.js?v=5"></script>
+  <script src="assets/register.js?v=5"></script>
 </body>
 </html>

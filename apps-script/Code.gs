@@ -40,10 +40,10 @@ const REG_COLUMNS = [
   ['T-Shirt Size', 'shirt'],
   ['Completed Ultra Before', 'ultraBefore'],
   ['Longest Distance', 'longest'],
-  ['Team Role', 'teamRole'],
-  ['Team ID', 'teamId'],
-  ['Team Name', 'teamName'],
-  ['Est. Team Size', 'teamSize'],
+  ['Relay Role', 'teamRole'],
+  ['Relay Group ID', 'teamId'],
+  ['Relay Group Name', 'teamName'],
+  ['Est. Group Size', 'teamSize'],
   ['Estimated Loops', 'estLoops'],
   ['First Loop Day', 'startDay'],
   ['First Loop Time', 'startTime'],
@@ -72,7 +72,7 @@ const REG_COLUMNS = [
   ['Submission ID', 'submissionId'],
 ];
 
-const TEAM_HEADERS = ['Team ID', 'Team Name', 'Captain Registration ID', 'Captain Name', 'Captain Email', 'Est. Team Size', 'Created', 'Registered Members'];
+const TEAM_HEADERS = ['Relay Group ID', 'Relay Group Name', 'Captain Registration ID', 'Captain Name', 'Captain Email', 'Est. Group Size', 'Created', 'Registered Members'];
 
 /** Run once from the Apps Script editor to build the tabs, headers, and Summary. Safe to re-run. */
 function setup() {
@@ -170,7 +170,7 @@ function doPost(e) {
     // Same submission retried (double click, flaky network): return the original registration.
     const dup = findRow_(reg, 'Submission ID', d.submissionId);
     if (d.submissionId && dup) {
-      return json_({ ok: true, duplicate: true, registrationId: dup['Registration ID'], teamName: dup['Team Name'] });
+      return json_({ ok: true, duplicate: true, registrationId: dup['Registration ID'], teamName: dup['Relay Group Name'] });
     }
 
     const age = ageOnRaceDay_(d.dob);
@@ -182,11 +182,16 @@ function doPost(e) {
     let team = null;
     if (d.challenge === 'relay') {
       if (d.teamMode === 'create' && findTeamByName_(teams, d.teamName)) {
-        return json_({ ok: false, error: `A team named "${d.teamName}" already exists. Pick a different name, or go back and choose "I'm joining an existing team".` });
+        return json_({ ok: false, error: `A relay group named "${d.teamName}" already exists. Pick a different name, or go back and choose "I'm joining a relay group".` });
       }
       if (d.teamMode !== 'create') {
-        team = findTeamById_(teams, d.teamId);
-        if (!team) return json_({ ok: false, error: "We couldn't find that team. Refresh the page and pick your team again." });
+        if (d.teamId === 'other') {
+          // Typed name: match it to an existing group if there is one.
+          team = findTeamByName_(teams, d.joinTeamName) || null;
+        } else {
+          team = findTeamById_(teams, d.teamId);
+          if (!team) return json_({ ok: false, error: "We couldn't find that relay group. Refresh the page and pick it again." });
+        }
       }
     }
 
@@ -211,11 +216,15 @@ function doPost(e) {
         rec.teamRole = 'Captain';
         teams.appendRow([rec.teamId, d.teamName, registrationId, `${d.firstName} ${d.lastName}`, d.email, d.teamSize, stamp].map(safe_));
         const r = teams.getLastRow();
-        teams.getRange(r, 8).setFormula(`=COUNTIF(${col_('Team ID')},A${r})`);
-      } else {
+        teams.getRange(r, 8).setFormula(`=COUNTIF(${col_('Relay Group ID')},A${r})`);
+        linkEarlyMembers_(reg, rec.teamId, d.teamName);
+      } else if (team) {
         rec.teamId = team.id;
         rec.teamName = team.name;
         rec.teamRole = 'Member';
+      } else {
+        rec.teamName = d.joinTeamName;
+        rec.teamRole = 'Member (group not created yet)';
       }
     }
 
@@ -243,6 +252,7 @@ function validate_(d, minor) {
   if (d.challenge === 'solo') required.push('ultraBefore', 'longest', 'soloCrew');
   else required.push('crew');
   if (d.challenge === 'relay') required.push('teamMode', d.teamMode === 'create' ? 'teamName' : 'teamId');
+  if (d.challenge === 'relay' && d.teamMode === 'join' && d.teamId === 'other') required.push('joinTeamName');
   if (d.challenge === 'relay' && d.teamMode === 'create') required.push('teamSize');
   if (d.challenge === 'loops') required.push('estLoops', 'startDay', 'startTime');
   if (minor) required.push('guardianName', 'guardianRelation', 'guardianPhone', 'guardianEmail', 'guardianConsent', 'guardianSignature');
@@ -276,6 +286,20 @@ function findRow_(sheet, header, value) {
   return row ? Object.fromEntries(data[0].map((h, i) => [h, row[i]])) : null;
 }
 
+// Teammates who typed this group's name before the captain created it get linked now.
+function linkEarlyMembers_(reg, teamId, name) {
+  if (reg.getLastRow() < 2) return;
+  const data = reg.getDataRange().getValues();
+  const idCol = data[0].indexOf('Relay Group ID'), nameCol = data[0].indexOf('Relay Group Name'), roleCol = data[0].indexOf('Relay Role');
+  const key = name.toLowerCase().replace(/\s+/g, ' ').trim();
+  data.slice(1).forEach((row, i) => {
+    if (!row[idCol] && String(row[nameCol]).toLowerCase().replace(/\s+/g, ' ').trim() === key) {
+      reg.getRange(i + 2, idCol + 1).setValue(teamId);
+      reg.getRange(i + 2, roleCol + 1).setValue('Member');
+    }
+  });
+}
+
 function teamRows_(teams) {
   return teams.getLastRow() > 1 ? teams.getRange(2, 1, teams.getLastRow() - 1, 2).getValues().map((r) => ({ id: String(r[0]), name: String(r[1]) })) : [];
 }
@@ -306,7 +330,7 @@ function sendConfirmation_(rec) {
     ['Participant', `${rec.firstName} ${rec.lastName}`],
     ['Challenge', rec.challengeLabel],
   ];
-  if (rec.teamName) rows.push(['Team', `${rec.teamName}${rec.teamRole === 'Captain' ? ' (captain)' : ''}`]);
+  if (rec.teamName) rows.push(['Relay group', `${rec.teamName}${rec.teamRole === 'Captain' ? ' (captain)' : ''}`]);
   if (rec.startDay) rows.push(['First loop (estimated)', `${rec.startDay} · ${rec.startTime}`]);
   rows.push(['Registration donation', rec.regDonation === 'Donated $50' ? '$50 donation made' : 'Due before race day']);
   rows.push(['Date', EVENT.date], ['Start', EVENT.startTime], ['Location', EVENT.location], ['Confirmation #', rec.registrationId]);
