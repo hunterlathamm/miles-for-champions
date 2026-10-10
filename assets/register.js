@@ -113,6 +113,7 @@
       const d = v.replace(/\D/g, "");
       if (!(d.length === 10 || (d.length === 11 && d[0] === "1"))) return "Enter a 10-digit phone number.";
     }
+    if (f.name === "zip" && !/^\d{5}(-\d{4})?$/.test(v)) return "Enter a 5-digit ZIP code.";
     if (f.type === "date") {
       if (v > todayISO) return "Date of birth can't be in the future.";
       if (v < "1900-01-01") return "Enter a valid date of birth.";

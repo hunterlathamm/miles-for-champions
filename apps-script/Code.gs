@@ -33,6 +33,7 @@ const REG_COLUMNS = [
   ['Street Address', 'street'],
   ['City', 'city'],
   ['State', 'state'],
+  ['ZIP Code', 'zip'],
   ['Gender', 'gender'],
   ['Running Club', 'club'],
   ['T-Shirt Size', 'shirt'],
@@ -237,7 +238,7 @@ function doPost(e) {
 
 function validate_(d, minor) {
   if (!CHALLENGES[d.challenge]) return 'Please choose a challenge.';
-  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'street', 'city', 'state', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'fundraising', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
+  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'street', 'city', 'state', 'zip', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'fundraising', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
   if (d.challenge === 'solo') required.push('ultraBefore', 'longest', 'soloCrew');
   else required.push('crew');
   if (d.challenge === 'relay') required.push('teamMode', d.teamMode === 'create' ? 'teamName' : 'teamId');
@@ -248,6 +249,7 @@ function validate_(d, minor) {
   if (missing.length) return 'Some required information is missing. Please go back and complete every required field.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) return 'Please enter a valid email address.';
   if (ageOnRaceDay_(d.dob) === null) return 'Please enter a valid date of birth.';
+  if (!/^\d{5}(-\d{4})?$/.test(d.zip)) return 'Please enter a valid ZIP code.';
   return '';
 }
 
