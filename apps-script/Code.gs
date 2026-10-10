@@ -30,6 +30,7 @@ const REG_COLUMNS = [
   ['Phone', 'phone'],
   ['Date of Birth', 'dob'],
   ['Age on Race Day', 'age'],
+  ['Street Address', 'street'],
   ['City', 'city'],
   ['State', 'state'],
   ['Gender', 'gender'],
@@ -236,7 +237,7 @@ function doPost(e) {
 
 function validate_(d, minor) {
   if (!CHALLENGES[d.challenge]) return 'Please choose a challenge.';
-  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'city', 'state', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'fundraising', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
+  const required = ['firstName', 'lastName', 'email', 'phone', 'dob', 'street', 'city', 'state', 'ecName', 'ecPhone', 'ecRelation', 'firstBackyard', 'fundraising', 'agreeWaiver', 'agreeRules', 'agreeAccurate', 'signature'];
   if (d.challenge === 'solo') required.push('ultraBefore', 'longest', 'soloCrew');
   else required.push('crew');
   if (d.challenge === 'relay') required.push('teamMode', d.teamMode === 'create' ? 'teamName' : 'teamId');
